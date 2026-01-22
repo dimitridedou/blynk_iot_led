@@ -59,7 +59,7 @@
 
 # ΚΥΚΛΩΜΑ
 
-![image.png](digital_circuit.png)
+![image.png](digital-circuit.png)
 
 ![image.png](circuit.png)
 
@@ -71,7 +71,7 @@
 
 > [https://blynk.cloud/dashboard/login](https://blynk.cloud/dashboard/login)
 
-![image.png](dashboard.png)
+![image.png](dashboard-blynk.png)
 
 Στο περιβάλλον Blynk έχουμε δημιουργήσει ένα οικοσύστημα με τη χρήση 2 widgets, του switch και του led. Ο τρόπος λειτουργίας του συγκεκριμένου περιβάλλοντος είναι ο εξής:
 Όταν πατήσουμε έναν ή παραπάνω διακόπτες θα πρέπει να μεταβληθεί η κατάσταση τους (από on σε off και το αντίστροφο) ταυτόχρονα με την αλλαγή της κατάστασης του switch θα πρέπει να αλλάξει και η κατάσταση στο εκάστοτε led.
