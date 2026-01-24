@@ -1,0 +1,78 @@
+#define BLYNK_AUTH_TOKEN BLYNK_AUTH_TOKEN_HERE"
+#define BLYNK_TEMPLATE_ID "BLYNK_TEMPLATE_ID_HERE"
+#define BLYNK_TEMPLATE_NAME BLYNK_TEMPLATE_NAME_HERE"
+
+#define BLYNK_PRINT Serial
+#define ESP8266_BAUD 9600
+
+#include <SoftwareSerial.h>
+#include <ESP8266_Lib.h>
+#include <BlynkSimpleShieldEsp8266.h>
+
+
+// Setup WiFi credentials.
+char ssid[] = "WIFE_NAME_HERE";
+char pass[] = "PASSWORD_WIFI_HERE";
+char auth[] = BLYNK_AUTH_TOKEN;
+
+SoftwareSerial EspSerial(2, 3); // RX, TX
+ESP8266 wifi(&EspSerial);
+
+const int led11 = 11;
+const int led10 = 10;
+const int led9 = 9;
+const int led8 = 8;
+
+void setup()
+{
+  Serial.begin(9600);
+
+  // Set ESP8266 baud rate
+  EspSerial.begin(ESP8266_BAUD);
+  delay(10);
+
+  pinMode(led11, OUTPUT);
+  digitalWrite(led11, LOW);
+  
+  pinMode(led10, OUTPUT);
+  digitalWrite(led10, LOW);
+
+  pinMode(led9, OUTPUT);
+  digitalWrite(led9, LOW);
+
+  pinMode(led8, OUTPUT);
+  digitalWrite(led8, LOW);
+
+  //Blynk.begin(auth, wifi, ssid, pass);
+  // Specify server:
+  Blynk.begin(auth, wifi, ssid, pass, "blynk.cloud", 80);  
+}
+
+BLYNK_WRITE(V11)
+{
+  int value = param.asInt();
+  digitalWrite(led11, value);
+}
+
+BLYNK_WRITE(V10)
+{
+  int value = param.asInt();
+  digitalWrite(led10, value);
+}
+
+BLYNK_WRITE(V9)
+{
+  int value = param.asInt();
+  digitalWrite(led9, value);
+}
+
+BLYNK_WRITE(V8)
+{
+  int value = param.asInt();
+  digitalWrite(led8, value);
+}
+
+void loop()
+{
+  Blynk.run();
+}
